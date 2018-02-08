@@ -8,4 +8,3 @@ dnscrypt-proxy-v2:
     environment:
         - CONF_FILE=/config/dnscrypt-proxy.toml
     restart: always
-#    net: "pub_net"
