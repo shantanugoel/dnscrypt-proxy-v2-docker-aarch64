@@ -1,0 +1,11 @@
+dnscrypt-proxy-v2:
+    image: bzsklb/dnscrypt-proxy-v2
+    volumes:
+        - ./config:/config
+    ports:
+        - "53:53/udp"
+        - "53:53/tcp"
+    environment:
+        - CONF_FILE=/config/dnscrypt-proxy.toml
+    restart: always
+#    net: "pub_net"
