@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM arm64v8/alpine:latest
 ENV CONF_FILE /config/dnscrypt-proxy.toml
 RUN apk add --no-cache wget ca-certificates \
 && wget -q https://github.com/jedisct1/dnscrypt-proxy/releases/download/2.0.16/dnscrypt-proxy-linux_arm64-2.0.16.tar.gz \
