@@ -1,10 +1,16 @@
-dnscrypt-proxy-v2:
-    image: bzsklb/dnscrypt-proxy-v2
+version: '3'
+
+services:
+  dnscrypt-proxy:
+    build:
+      context: .
+      args:
+        DNS_PORT: 11154
     volumes:
-        - ./config:/config
+        - /mnt/extdata/apps/dnscrypt-proxy/config:/config
     ports:
-        - "53:53/udp"
-        - "53:53/tcp"
+      - "11154:11154/udp"
+      - "11154:11154/tcp"
     environment:
         - CONF_FILE=/config/dnscrypt-proxy.toml
-    restart: always
+    restart: unless-stopped
