@@ -6,11 +6,11 @@ services:
       context: .
       args:
         DNS_PORT: 11154
-    volumes:
-        - /mnt/extdata/apps/dnscrypt-proxy/config:/config
-    ports:
-      - "11154:11154/udp"
-      - "11154:11154/tcp"
-    environment:
-        - CONF_FILE=/config/dnscrypt-proxy.toml
-    restart: unless-stopped
+  volumes:
+    - /mnt/extdata/apps/dnscrypt-proxy/config:/config
+  ports:
+    - "11154:11154/udp"
+    - "11154:11154/tcp"
+  environment:
+    - CONF_FILE=/config/dnscrypt-proxy.toml
+  restart: unless-stopped
