@@ -1,8 +1,9 @@
 FROM arm64v8/alpine:latest
 ENV CONF_FILE /config/dnscrypt-proxy.toml
+ARG dnscrypt_version=2.0.29-beta.3
 RUN apk add --no-cache wget ca-certificates \
-&& wget -q https://github.com/jedisct1/dnscrypt-proxy/releases/download/2.0.22/dnscrypt-proxy-linux_arm64-2.0.22.tar.gz \
-&& tar -xzf dnscrypt-proxy-linux_arm64-2.0.22.tar.gz \
+&& wget -q https://github.com/DNSCrypt/dnscrypt-proxy/releases/download/${dnscrypt_version}/dnscrypt-proxy-linux_arm64-${dnscrypt_version}.tar.gz \
+&& tar -xzf dnscrypt-proxy-linux_arm64-${dnscrypt_version}.tar.gz \
 && mv /linux-arm64 /dnscrypt
 ARG DNS_PORT=53
 EXPOSE $DNS_PORT/tcp $DNS_PORT/udp
