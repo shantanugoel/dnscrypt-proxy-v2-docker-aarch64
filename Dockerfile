@@ -1,6 +1,6 @@
 FROM arm64v8/alpine:latest
 ENV CONF_FILE /config/dnscrypt-proxy.toml
-ARG dnscrypt_version=2.0.29-beta.3
+ARG dnscrypt_version=2.0.44
 RUN apk add --no-cache wget ca-certificates \
 && wget -q https://github.com/DNSCrypt/dnscrypt-proxy/releases/download/${dnscrypt_version}/dnscrypt-proxy-linux_arm64-${dnscrypt_version}.tar.gz \
 && tar -xzf dnscrypt-proxy-linux_arm64-${dnscrypt_version}.tar.gz \
